@@ -1,7 +1,4 @@
 var greeting = 'Hello'; 
-<<<<<<< HEAD
-console.log(greeting); 
-=======
 console.log(greeting);  
 test 2 3
->>>>>>> 4ed2dc27a004d9185db4aabbb0d0d5b922b7bc91
+test 4

@@ -1,11 +1,18 @@
-const express = require("express");const app = express();
+const express = require("express");
+const app = express();
 const v1Router = require("./routes/v1/router");
 const v2Router = require("./routes/v2/router");
+const corsMiddleware = require("./middleware/corsMiddleware");
+
 
 
 // Built-in body-parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// CORS setup
+
+app.use(corsMiddleware)
 
 
 // api version controls

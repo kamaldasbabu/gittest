@@ -1,8 +1,19 @@
 const express = require("express");
 const app = express();
+const helmet = require("helmet");
 const v1Router = require("./routes/v1/router");
 const v2Router = require("./routes/v2/router");
-const corsMiddleware = require("./middleware/corsMiddleware");
+const corsMiddleware = require("./middleware/cors.middleware");
+const { limiter } = require("./middleware/limiter.middileware");
+
+
+// SECURITY MIDDILEWARE
+// helmet
+app.use(helmet());
+//limiter
+app.use(limiter);
+// CORS setup
+app.use(corsMiddleware);
 
 
 
@@ -10,9 +21,6 @@ const corsMiddleware = require("./middleware/corsMiddleware");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// CORS setup
-
-app.use(corsMiddleware)
 
 
 // api version controls

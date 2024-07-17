@@ -27,6 +27,7 @@ app.get("/ping", (req, res) => {
 
 
 // wirld card routes
+// eslint-disable-next-line no-unused-vars
 app.use((req, res, next) => {
   res.status(200).send("No route found");
 });

@@ -5,7 +5,7 @@ const v1Router = require("./routes/v1/router");
 const v2Router = require("./routes/v2/router");
 const corsMiddleware = require("./middleware/cors.middleware");
 const { limiter } = require("./middleware/limiter.middileware");
-
+require("dotenv").config();
 
 // SECURITY MIDDILEWARE
 // helmet
@@ -16,11 +16,9 @@ app.use(limiter);
 app.use(corsMiddleware);
 
 
-
 // Built-in body-parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 
 
 // api version controls

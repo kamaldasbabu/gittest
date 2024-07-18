@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const formController = require("../../controller/v1/form.controller");
+const eventController = require("../../controller/v1/event.controller");
 
 
 //API START
@@ -20,6 +21,9 @@ router.get("/form", [], (req, res) => {
 })
 router.post("/submit", [], (req, res) => {
     formController.submit(req, res);
+})
+router.post("/event", [], (req, res) => {
+  eventController.eventExample(req, res);
 })
 
 module.exports = router;

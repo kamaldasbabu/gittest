@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const formController = require("../../controller/v1/form.controller");
 const eventController = require("../../controller/v1/event.controller");
+const fileController = require("../../controller/v1/file.controller");
 
 
 //API START
@@ -25,5 +26,10 @@ router.post("/submit", [], (req, res) => {
 router.post("/event", [], (req, res) => {
   eventController.eventExample(req, res);
 })
+
+router.get("/fs", [], (req, res) => {
+  fileController.fileExample(req, res);
+})
+
 
 module.exports = router;

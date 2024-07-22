@@ -3,9 +3,15 @@ const app = express();
 const helmet = require("helmet");
 const v1Router = require("./routes/v1/router");
 const v2Router = require("./routes/v2/router");
-const corsMiddleware = require("./middleware/cors.middleware");
+const cors = require("./middleware/cors.middleware");
 const { limiter } = require("./middleware/limiter.middileware");
 require("dotenv").config();
+
+
+// variables
+
+// eslint-disable-next-line no-undef
+const PORT = process.env.PORT || 3000;
 
 // SECURITY MIDDILEWARE
 // helmet
@@ -13,7 +19,7 @@ app.use(helmet());
 //limiter
 app.use(limiter);
 // CORS setup
-app.use(corsMiddleware);
+app.use(cors);
 
 
 // Built-in body-parser middleware
@@ -39,6 +45,6 @@ app.use((req, res, next) => {
 });
 
 // server listen
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

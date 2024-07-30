@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const helmet = require("helmet");
+const morgan = require('morgan')('dev');
 const v1Router = require("./routes/v1/router");
 const v2Router = require("./routes/v2/router");
 const cors = require("./middleware/cors.middleware");
@@ -20,6 +21,7 @@ app.use(helmet());
 app.use(limiter);
 // CORS setup
 app.use(cors);
+app.use(morgan);
 
 
 // Built-in body-parser middleware

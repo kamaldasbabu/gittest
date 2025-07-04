@@ -6,7 +6,7 @@ const v1Router = require("./routes/v1/router");
 const v2Router = require("./routes/v2/router");
 const cors = require("./middleware/cors.middleware");
 const { limiter } = require("./middleware/limiter.middileware");
-require("dotenv").config();
+require("dotenv").config({path: `.env`});
 
 
 // variables
